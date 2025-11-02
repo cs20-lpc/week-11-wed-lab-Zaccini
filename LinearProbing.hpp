@@ -11,7 +11,8 @@ public:
 
     
     int probeIndex(const T& key, int i) const override {
-        // TODO: Implement linear probing with skip
-        return 0;
+        int h = this->hash1(key);
+        int idx = (h + i * skip) % this->M;
+        return idx;
     }
 };

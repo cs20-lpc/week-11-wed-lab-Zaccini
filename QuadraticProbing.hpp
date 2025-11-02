@@ -8,8 +8,9 @@ public:
         : HashTableClosed<T>(size) {}
 
     int probeIndex(const T& key, int i) const override {
-        // TODO: Implement quadratic probing
-        return 0;
+        int h = this->hash1(key);
+        int idx = (h + i * i) % this->M;
+        return idx;
     }
 
    
